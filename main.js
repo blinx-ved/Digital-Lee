@@ -3,10 +3,9 @@
     import htm from 'https://esm.sh/htm';
     const html = htm.bind(h);
     window.onbeforeunload = function () {
-        //window.scrollTo(0,0);
+        window.scrollTo(0,0);
     };
     class App extends Component {
-        //state = {};
         componentDidMount(){
             new Typed('#landingText', {
                 strings: ['Would you save me?'],
@@ -17,11 +16,6 @@
                 showCursor: false,
             });
             anime({targets: `.navt`, translateY: 100, duration: 2000, delay: 3000, easing: 'easeOutBounce'})  
-
-        }
-        componentDidUpdate(){
-            console.log("hi")
-            //document.getElementById("b-main").style.visibility = "hidden";
 
         }
         render() {
@@ -36,15 +30,21 @@
                         anime({targets: `#factIFL`, translateX: "100vw", duration:4000, easing: 'spring(1, 50, 10, 0)'})  
                         anime({targets: `#factIFR`, translateX: "-100vw", duration: 4000, easing: 'spring(1, 50, 10, 0)'})  
                     }else if(Math.round(section)==2){
-                        console.log("ran")
-                        anime({targets: `#galleryInFromLeft`, translateX: "100vw", duration: 4000})  
-                        anime({targets: `#galleryInFromRight`, translateX: "-100vw", duration: 3500})  
+                        console.log("hwuifiwfeuiferh")
+                        anime({targets: `#one`, translateX: "100vw", duration: 4000})  
+                        anime({targets: `#two`, translateX: "100vw", duration: 4000})  
+                        anime({targets: `#three`, translateX: "-100vw", duration: 3500})  
+                        anime({targets: `#four`, translateX: "-100vw", duration: 3500})  
+                    }else if(Math.round(section)==3){
+                        console.log("hwuifiwfeuiferh")
+                        anime({targets: `#appone`, translateX: "100vw", duration: 4000})  
+                        anime({targets: `#apptwo`, translateX: "-100vw", duration: 4000})  
                     }
                 }
                 prevSection = section
             }
 
-            var thing= ["Landing", "Facts","Download the app","Gallery"]
+            var thing= ["Landing", "Facts","Gallery","Download the app"]
             var facts= ["It is estimated that there is over 150 peices of litter for each person in Fort Myers ", 
             "Every year the city of Fort Myers removes 51 cubic yards of trash from our waterways."]
             return (html`<body class=" text-white ">
@@ -65,16 +65,16 @@
                             </div>
                         </div>
                     </section>
-                    <section id="Gallery" class="grid grid-cols-2 overflow  h-[100vh] w-full border-b-4 border-black font-sans">
-                        <div class="border-l-4 border-t-4 border-white bg-[url('1.jpg')] bg-cover bg-center relative"><p class="w-full p-2 absolute bottom-0 bg-black/50">Fort Myers Beach</p></div>
-                        <div class="border-l-4 border-t-4 border-white bg-[url('2.jpg')] bg-cover bg-center relative"><p class="w-full p-2 absolute bottom-0 bg-black/50">Caloosahatchee Bridge</p></div>
-                        <div class="border-l-4 border-t-4 border-white bg-[url('3.jpg')] bg-cover bg-center relative"><p class="w-full p-2 absolute bottom-0 bg-black/50">Caloosahatchee Bridge</p></div>
-                        <div class="border-l-4 border-t-4 border-white bg-[url('4.jpg')] bg-cover bg-center relative"><p class="w-full p-2 absolute bottom-0 bg-black/50">Fort Myers Beach</p></div>
+                    <section id="Gallery" class="grid grid-cols-2 overflow bg-slate-800 h-[100vh] w-full border-b-4 border-black font-sans">
+                        <div style="transform: translate(-100vw, 0);" id="one" class="border-l-4 border-t-4 border-white bg-[url('1.jpg')] bg-cover bg-center relative"><p class="w-full p-2 absolute bottom-0 bg-black/50">Fort Myers Beach</p></div>
+                        <div style="transform: translate(-100vw, 0);" id="two" class="border-l-4 border-t-4 border-white bg-[url('2.jpg')] bg-cover bg-center relative"><p class="w-full p-2 absolute bottom-0 bg-black/50">Caloosahatchee Bridge</p></div>
+                        <div style="transform: translate(100vw, 0);" id="three" class="border-l-4 border-t-4 border-white bg-[url('3.jpg')] bg-cover bg-center relative"><p class="w-full p-2 absolute bottom-0 bg-black/50">Caloosahatchee Bridge</p></div>
+                        <div style="transform: translate(100vw, 0);" id="four" class="border-l-4 border-t-4 border-white bg-[url('4.jpg')] bg-cover bg-center relative"><p class="w-full p-2 absolute bottom-0 bg-black/50">Fort Myers Beach</p></div>
                     </section>
                     <section id="Download the app" class=" h-[100vh] w-full border-b-4 border-black bg-[url('manatee.jpg')] bg-cover bg-center">
                         <div class="backdrop-brightness-[0.6] pt-12 w-full h-full sm:bg-gradient-to-l bg-gradient-to-t from-black to-transparent relative">
-                            <h1 class="w-full h-fit  pt-8   sm:text-[10vw] text-[8vh] sm:text-left text-center font-serif font-bold absolute top-0 left-0">You can help...</h1>
-                            <div class="grid gap-4 justify-items-center grid-cols-1 sm:grid-cols-[2fr_1fr_1fr] right-0 bottom-0 absolute w-full inset-y-2/4">
+                            <h1 style="transform: translate(-100vw, 0);"  id="appone" class="w-full h-fit  pt-8   sm:text-[10vw] text-[8vh] sm:text-left text-center font-serif font-bold absolute top-0 left-0">You can help...</h1>
+                            <div style="transform: translate(100vw, 0);"  id="apptwo" class="grid gap-4 justify-items-center grid-cols-1 sm:grid-cols-[2fr_1fr_1fr] right-0 bottom-0 absolute w-full inset-y-2/4">
                                 <p id="" class="h-min justify-self-center sm:text-[3vh] text-[5vw] text-center sm:px-2 px-4 sm:w-[40vw] border-y-2 h-fit border-white">By downloading our app you can report litter so we can come and pick it up And with your help, together we can keep our beautiful Fort Myers ecosystem Clean, Pristene, and Healthy. </p>
                                 <img src="qrcode.png" class="rounded w-[35vh] hidden sm:block row-span-2" /> 
                                 <div class="grid grid-cols-1 justify-items-center align-middle">
